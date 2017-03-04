@@ -1,0 +1,37 @@
+{
+  "name": "StateLess",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
+    "firebase": "^3.6.9",
+    "getstream-node": "^1.4.0",
+    "native-base": "^2.0.10",
+    "react": "15.4.2",
+    "react-native": "0.41.2",
+    "react-native-button": "^1.8.2",
+    "react-native-drawer": "^2.3.0",
+    "react-native-easy-grid": "^0.1.8",
+    "react-native-image-crop-picker": "^0.12.4",
+    "react-native-keyboard-aware-scroll-view": "^0.2.7",
+    "react-native-modalbox": "^1.3.9",
+    "react-native-router-flux": "^3.37.0",
+    "react-native-slider": "^0.9.1",
+    "react-native-splash-screen": "^2.0.0",
+    "react-native-vector-icons": "^4.0.0",
+    "react-native-video": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-jest": "18.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "18.1.0",
+    "react-test-renderer": "15.4.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
