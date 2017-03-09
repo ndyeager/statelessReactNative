@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-  View, Text, StyleSheet, ScrollView, Alert,
+  View, Text, StyleSheet, ScrollView, Alert, StatusBar, AsyncStorage,
   Image, TouchableOpacity, NativeModules, Dimensions, TouchableHighlight
 } from 'react-native';
 
@@ -9,15 +9,32 @@ import { Actions, Scene, Router } from 'react-native-router-flux';
 
 var ImagePicker = NativeModules.ImageCropPicker;
 
+const ACCESS_TOKEN = 'access_token';
+
 class ImageUpload extends Component {
 
   constructor() {
     super();
     this.state = {
+      token: '',
       image: null,
-      images: null,
-      imageChosen: false
+      images: null
     };
+  }
+
+  componentWillMount(){
+      this.getToken(ACCESS_TOKEN);
+  }
+
+  async getToken(accessToken){
+    try{
+      let token = await AsyncStorage.getItem(accessToken);
+      this.setState({token:token});
+      return token;
+    } catch(error) {
+        console.log("Something went wrong")
+        return null;
+    }
   }
 
   pickSingleBase64() {
@@ -30,7 +47,7 @@ class ImageUpload extends Component {
       includeBase64: true
     }).then(image => {
       console.log('received base64 image:', image);
-      // this.pictureSubmit(image.data);
+      this.pictureSubmit(image.data);
       this.setState({
         image: {uri: `data:${image.mime};base64,`+ image.data, width: image.width, height: image.height},
         images: null
@@ -49,6 +66,7 @@ class ImageUpload extends Component {
         },
         body: JSON.stringify({
           profile_picture:image,
+          token: this.state.token
         })
       });
 
@@ -65,11 +83,19 @@ class ImageUpload extends Component {
     }
   }
 
-  buttonPressed(){
-    console.log("Pressed");
-    if (this.state.imageChosen == false){
+  nextButtonPressed(){
+    console.log("Next Pressed");
+    if (this.state.image == null){
       alert("No picture selected.")
+    } else {
+
+      Actions.userpage();
     }
+  }
+
+  skipButton(){
+    console.log('Skip Button Pressed');
+    Actions.userpage();
   }
 
   renderAsset(image) {
@@ -91,6 +117,7 @@ class ImageUpload extends Component {
   render(){
     return(
       <View style={styles.container}>
+        <StatusBar barStyle='light-content'/>
         <View style={styles.headercontainer}>
 
           <Text style={styles.headertext}>Upload A Profile Picture</Text>
@@ -100,11 +127,10 @@ class ImageUpload extends Component {
             {this.state.image ? this.renderAsset(this.state.image) : this.renderAddImage()}
         </View>
         <View style={styles.footercontainer}>
-          <TouchableOpacity onPress={this.buttonPressed.bind(this)}
+          <TouchableOpacity onPress={this.nextButtonPressed.bind(this)}
             style={{
             margin: 10,
             backgroundColor:'#e74c3c',
-            color: "white",
             width: 385,
             padding: 10,
             alignItems: 'center',
@@ -112,14 +138,13 @@ class ImageUpload extends Component {
           }}>
             <Text style={styles.text}>Next</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={Actions.stateselection}
+          <TouchableOpacity onPress={Actions.userpage}
             style={{
             margin: 10,
-            backgroundColor:'rbga(0,0,0,0)',
+            backgroundColor:'rgba(0,0,0,0.0)',
             borderWidth: 1,
             borderRadius: 1,
             borderColor: 'rgba(255, 255, 255,1)',
-            color: "white",
             width: 385,
             padding: 10,
             alignItems: 'center',

@@ -8,5 +8,4 @@ target 'StateLess' do
   # Pods for StateLess
   pod 'RSKImageCropper'
   pod 'QBImagePickerController'
-
 end

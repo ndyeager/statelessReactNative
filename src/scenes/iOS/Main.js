@@ -28,21 +28,21 @@ class Main extends Component {
     return (
       <Router>
         <Scene key='root'>
-          <Scene key="home" title='Home' component={Home} hideNavBar={true}/>
+          <Scene key="home" title='Home' component={Home} initial={true} hideNavBar={true}/>
           <Scene key="welcomescreen" title='Welcome Screen' component={WelcomeScreen} hideNavBar={true}/>
-          <Scene key="imageupload" title='Image Upload' initial={true} component={ImageUpload} hideNavBar={true}/>
+          <Scene key="imageupload" title='Image Upload' component={ImageUpload} hideNavBar={true}/>
           <Scene key="geolocation" title='Geolocation' component={GeolocationComponent} hideNavBar={true}/>
           <Scene key="demo" title='demo' component={Demo} hideNavBar={true}/>
           <Scene key="stream" title='Stream' component={Stream} hideNavBar={true}/>
           <Scene key="userpage" title='User Page' component={UserPage} hideNavBar={true}/>
           <Scene key="register" title='Register' component={Register} hideBackImage={false} hideNavBar={false}
-          navigationBarStyle ={{backgroundColor:'rgba(0,0,0,0)', borderBottomColor:'rgba(0,0,0,0)'}} title=""
+          navigationBarStyle ={{backgroundColor:'transparent', borderBottomColor:'transparent'}} title=""
           />
           <Scene key="login" title='Login' component={Login} hideBackImage={false} hideNavBar={false}
-          navigationBarStyle ={{backgroundColor:'rgba(0,0,0,0)', borderBottomColor:'rgba(0,0,0,0)'}} title=""
+          navigationBarStyle ={{backgroundColor:'transparent', borderBottomColor:'transparent'}} title=""
           />
           <Scene key="account" title='Account' component={Account} hideBackImage={true} hideNavBar={false}
-          navigationBarStyle ={{backgroundColor:'rgba(0,0,0,0)', borderBottomColor:'rgba(0,0,0,0)'}} title=""
+          navigationBarStyle ={{backgroundColor:'transparent', borderBottomColor:'transparent'}} title=""
           />
 
         </Scene>

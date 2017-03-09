@@ -70,7 +70,7 @@ class WelcomePage extends Component {
           onPress={() => this.refs.modal1.open()}
           style={{
             margin: 10,
-            backgroundColor:'rgba(0,0,0,0)',
+            backgroundColor:'rgba(0,0,0,0.0)',
             borderWidth: 1,
             borderRadius: 1,
             borderColor: 'rgba(255, 255, 255,1)',
@@ -120,7 +120,10 @@ const styles = StyleSheet.create({
   },
 
   modal1:{
-    backgroundColor: 'rgba(44, 62, 80,1)',
+    backgroundColor: '#F3F3F3',
+    marginTop: 30,
+    borderTopRightRadius: 25,
+    borderTopLeftRadius: 25
   },
 
   modal2: {

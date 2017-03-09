@@ -95,13 +95,13 @@ class Login extends Component {
           <Text style={styles.welcome}>Login</Text>
           <TextInput
             style={{
-              backgroundColor:'rgba(255,255,255,0.0)',
+              backgroundColor:'#bdc3c7',
               borderWidth: 1,
-              borderRadius: 1,
+              borderRadius: 5,
               borderColor: 'rgba(236, 240, 241,0.2)',
               margin:15,
               fontSize: 16,
-              color: 'rgba(236, 240, 241,0.2)',
+              color: 'white',
               height: 40,
               paddingHorizontal: 10
             }}
@@ -111,19 +111,19 @@ class Login extends Component {
             autoFocus={true}
             keyboardType='email-address'
             placeholder='Email Address'
-            placeholderTextColor='rgba(236, 240, 241,0.2)'
+            placeholderTextColor='white'
             returnKeyType='next'
             enablesReturnKeyAutomatically={true}
           />
           <TextInput
             style={{
-              backgroundColor:'rgba(255,255,255,0.0)',
+              backgroundColor:'#bdc3c7',
               borderWidth: 1,
-              borderRadius: 1,
+              borderRadius: 5,
               borderColor: 'rgba(236, 240, 241,0.2)',
               margin:15,
               fontSize: 16,
-              color: 'rgba(236, 240, 241,0.2)',
+              color: 'white',
               height: 40,
               width: 385,
               paddingHorizontal: 10
@@ -134,7 +134,7 @@ class Login extends Component {
             autoFocus={true}
             keyboardType='default'
             placeholder='Password'
-            placeholderTextColor='rgba(236, 240, 241,0.2)'
+            placeholderTextColor='white'
             secureTextEntry={true}
             returnKeyType='next'
             enablesReturnKeyAutomatically={true}
